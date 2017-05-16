@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>RSM Studios</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!---navbar------->
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand row" href="#">
+            <img class="logoJumbotron img-responsive"src="img\RSM LOGO 2justlogo.png" alt="RSM logo">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+		        <li><a href="#">Home</a></li>
+						<li><a href="beautygallery.html">Beauty Gallery</a></li>
+						<li><a href="fashiongallery.html">Fashion Gallery</a></li>
+						<li class="active"><a href="commercialgallery.html">Commercial Gallery</a></li>
+						<li><a href="musicgallery.html">Music Gallery</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!-- navbar end -->
+
+    <!-- image scroller -->
+<div class='container-fluid'>
+  <div id="scroller" style="width: 550px; height: 500px; margin: 0 auto;">
+    <div class="innerScrollArea">
+        <ul>
+            <!-- Define photos here -->
+            <li><img src="img\RSMWEB 0089.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0054.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0055.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0056.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0057.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0058.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0059.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0060.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0061.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0065.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0068.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0072.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0090.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0096.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0116.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0103.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0154.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0105.jpg" height="500" /></li>
+            <li><img src="img\RSMWEB 0106.jpg" height="500" /></li>
+        </ul>
+    </div>
+  </div>
+</div>
+  <!-- image scroller end -->
+
+  <!-- footer -->
+  <div class="container-fluid footerGallery">
+    <div class="row">
+      <div class="col-xs-6 col-sm-2 col-sm-offset-2">
+        <img src="img\RSM LOGO 2justlogo.png" alt="RSM logo" class="img-responsive logo">
+      </div>
+      <div class="col-xs-6 col-sm-4 contact-info">
+        <address>
+          <a href="http://mapq.st/2qQTxgk" target="_blank">
+						RSM Studios <br>
+						958 N. Fulton St. <br>
+						Fresno, CA <br>
+          </a>
+					<a href="tel:559-443-0000">559-443-0000</a><br>
+					<a href="mailto:raffi@rsmstudios.com">raffi@rsmstudios.com</a>
+				</address>
+      </div>
+      <div class="col-sm-2 social">
+				<a href="https://www.facebook.com/RSM-Studios-187529477957065/" class="icon fb" target="_blank"><i class="fa fa-facebook"></i>Facebook<span class="hidden-xs"></span></a><br>
+				<a href="https://www.instagram.com/fashionimage1/" class="icon gp" target="_blank"><i class="fa fa-instagram"></i>Instagram<span class="hidden-xs"></span></a><br>
+			</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 text-center fine-print">
+        <p>&copy;RSM Studios, Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- end footer -->
+  <!-- javascript -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var scroller = $('#scroller div.innerScrollArea');
+        var scrollerContent = scroller.children('ul');
+        scrollerContent.children().clone().appendTo(scrollerContent);
+        var curX = 0;
+        scrollerContent.children().each(function(){
+            var $this = $(this);
+            $this.css('left', curX);
+            curX += $this.outerWidth(true);
+        });
+        var fullW = curX / 2;
+        var viewportW = scroller.width();
+
+        // Scrolling speed management
+        var controller = {curSpeed:0, fullSpeed:2};
+        var $controller = $(controller);
+        var tweenToNewSpeed = function(newSpeed, duration)
+        {
+            if (duration === undefined)
+                duration = 600;
+            $controller.stop(true).animate({curSpeed:newSpeed}, duration);
+        };
+
+        // Pause on hover
+        scroller.hover(function(){
+            tweenToNewSpeed(0);
+        }, function(){
+            tweenToNewSpeed(controller.fullSpeed);
+        });
+
+        // Scrolling management; start the automatical scrolling
+        var doScroll = function()
+        {
+            var curX = scroller.scrollLeft();
+            var newX = curX + controller.curSpeed;
+            if (newX > fullW*2 - viewportW)
+                newX -= fullW;
+            scroller.scrollLeft(newX);
+        };
+        setInterval(doScroll, 20);
+        tweenToNewSpeed(controller.fullSpeed);
+    });
+</script>
+</body>
+</html>
